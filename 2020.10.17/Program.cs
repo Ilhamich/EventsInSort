@@ -13,30 +13,23 @@ namespace _2020._10._17
             do
             {
                 byte sortNum = UI.ChooseSort();
-                int arreySize = UI.SetArreySize();
+                int arraySize = UI.SetArreySize();
                 int pouseSpeed = UI.SetPouse();
+
+                InicialisationArray(out int[] array, arraySize);
 
                 switch (sortNum)
                 {
-                    case 1:
-                        int[] arrey = new int[arreySize];
-
-                        InicialisationArray(arrey);
-                        QuickSortMenu(arrey, pouseSpeed);
+                    case 1:                       
+                        QuickSortMenu(array, pouseSpeed);
                         break;
 
                     case 2:
-                        arrey = new int[arreySize];
-
-                        InicialisationArray(arrey);
-                        InsertSortMenu(arrey, pouseSpeed);
+                        InsertSortMenu(array, pouseSpeed);
                         break;
 
                     case 3:
-                        arrey = new int[arreySize];
-
-                        InicialisationArray(arrey);
-                        SelectSortMenu(arrey, pouseSpeed);
+                        SelectSortMenu(array, pouseSpeed);
                         break;
 
                     default:
@@ -46,11 +39,13 @@ namespace _2020._10._17
             } while (exit);      
         }
 
-        public static void InicialisationArray(int[] myArr)
+        public static void InicialisationArray(out int[] array, int arraySize)
         {
-            for (int i = 0; i < myArr.Length; i++)
+            array = new int[arraySize];
+
+            for (int i = 0; i < array.Length; i++)
             {
-                myArr[i] = rnd.Next(0, 100);
+                array[i] = rnd.Next(0, 100);
             }
         }
 
@@ -66,10 +61,10 @@ namespace _2020._10._17
             UI.ShowSortResolt(forQS);
         }
 
-        public static void InsertSortMenu<T>(T[] arrey, int pouseSpeed)
+        public static void InsertSortMenu<T>(T[] array, int pouseSpeed)
             where T : IComparable<T>
         {
-            Sorter<T> insertSort = new InsertSort<T>(arrey);
+            Sorter<T> insertSort = new InsertSort<T>(array);
             Vizualizator<T> vizForIS = new Vizualizator<T>(insertSort, pouseSpeed);
             Analyzer<T> forIS = new Analyzer<T>(insertSort, pouseSpeed);
 
