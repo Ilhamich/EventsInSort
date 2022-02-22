@@ -51,9 +51,6 @@ namespace _2020._10._17
 
         public int SecondSwapable { get; }
 
-        public T[] GetArreyState()
-        {
-            return (T[])_arreyState.Clone();
-        }
+        public T[] GetArreyState() => (T[])_arreyState.Clone();      
     }
 }

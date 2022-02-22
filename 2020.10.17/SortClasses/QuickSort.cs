@@ -51,17 +51,19 @@ namespace _2020._10._17
         {
             while (left < right)
             {
-                while (Compare(_source[left] ,_source[pivot],
-                        this, new SortProcessEventArgs<T>
-                        (true, _source, left, pivot, pivot)) <= 0
+                while (Compare(_source[left]
+                           ,_source[pivot]
+                           , this
+                           , new SortProcessEventArgs<T>(true, _source, left, pivot, pivot)) <= 0
                         && left < pivot)
                 {                 
                     left++;
                 }
             
-                while (Compare(_source[right], _source[pivot],
-                        this, new SortProcessEventArgs<T>
-                        (true, _source, right, pivot, pivot)) >= 0
+                while (Compare(_source[right]
+                           , _source[pivot]
+                           , this
+                           , new SortProcessEventArgs<T>(true, _source, right, pivot, pivot)) >= 0
                         && right > pivot)
                 {              
                     right--;

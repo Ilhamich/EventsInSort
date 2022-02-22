@@ -2,11 +2,9 @@
 
 namespace _2020._10._17
 {
-    class SelectSort<T> : Sorter<T>
-        where T : IComparable<T>
+    class SelectSort<T> : Sorter<T> where T : IComparable<T>
     {     
-        public SelectSort(T[] source)
-            : base(source)
+        public SelectSort(T[] source) : base(source)
         {
         }
 

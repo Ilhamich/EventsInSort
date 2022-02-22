@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _2020._10._17
 {
-    abstract class Sorter<T>
-        where T : IComparable<T>
+    abstract class Sorter<T> where T : IComparable<T>
     {
         protected T[] _source;
         protected SortProcess<T> _timeFix;
@@ -56,7 +51,7 @@ namespace _2020._10._17
         }
 
         public virtual T[] GetArreyCopy()
-        {          
+        {
             return (T[])_source.Clone();
         }
 
@@ -65,9 +60,7 @@ namespace _2020._10._17
         {
             _сomparisonFix?.Invoke(obj, e);
 
-            int resolt = first.CompareTo(second);
-
-            return resolt;
+            return first.CompareTo(second);
         }
 
         public virtual void Sort()
